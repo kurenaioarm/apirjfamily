@@ -1,0 +1,10 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+
+RewriteCond %{HTTP_HOST} appintra\.rajavithi\.go\.th [NC]
+RewriteCond %{SERVER_PORT} 8088
+RewriteRule ^(.*)$ https://appintra.rajavithi.go.th/$1 [R,L]
